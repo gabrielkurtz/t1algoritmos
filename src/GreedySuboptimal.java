@@ -40,6 +40,10 @@ public class GreedySuboptimal {
 		return results;
 	}
 	
+	public int getQuantity() {
+		return results.size();
+	}
+	
 	public String toString() {
 		return results.toString();
 	}

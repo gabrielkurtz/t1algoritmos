@@ -17,9 +17,15 @@ public class T1Algoritmos {
 			+ "\n------------------------------------------------"
 			+ "\n\nGerando 10 Listas de Intervalos");
 		
+		// Lista de Geradores contendo HashSets de valores aleatorios
 		ArrayList<RandomGenerator> generators = new ArrayList<RandomGenerator>();
+		// Lista de solucoes gulosas sub-otimas
 		ArrayList<GreedySuboptimal> solutionsSuboptimal = new ArrayList<GreedySuboptimal>();
+		// Lista de solucoes gulosas otimas
 		ArrayList<GreedyOptimal> solutionsOptimal = new ArrayList<GreedyOptimal>();
+		
+		int totalSolOpt = 0, totalSolSub = 0;
+		
 		
 		for (int i = 0; i<10; i++) {
 			
@@ -37,13 +43,23 @@ public class T1Algoritmos {
 			solutionsOptimal.add(new GreedyOptimal(generators.get(i).getLista()));
 			System.out.println(solutionsOptimal.get(i));
 			
+			System.out.println("\nNúmero de intervalos alocados por solução"
+					+ "\nGulosa Sub-ótima: " + solutionsSuboptimal.get(i).getQuantity()
+					+ "\nGulosa Ótima: " + solutionsOptimal.get(i).getQuantity());
+			
+			totalSolSub += solutionsSuboptimal.get(i).getQuantity();
+			totalSolOpt += solutionsOptimal.get(i).getQuantity();
+			
 			System.out.println("\n--------------------------------------------------------------------\n");
 		}
+		
+		float averageSub = totalSolSub / 10.0f;
+		float averageOpt = totalSolOpt / 10.0f;
+		
+		System.out.println("Média de intervalos alocados por solução nos 10 casos"
+				+ "\nGulosa Sub-ótima: " + averageSub 
+				+ "\nGulosa Ótima: " + averageOpt);
 
-		
-		
-		
-		
 	}
 	
 }
