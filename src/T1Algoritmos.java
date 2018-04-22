@@ -19,7 +19,7 @@ public class T1Algoritmos {
 		
 		ArrayList<RandomGenerator> generators = new ArrayList<RandomGenerator>();
 		ArrayList<GreedySuboptimal> solutionsSuboptimal = new ArrayList<GreedySuboptimal>();
-//		ArrayList<RandomGenerator> solutionsOptimal = new ArrayList<RandomGenerator>();
+		ArrayList<GreedyOptimal> solutionsOptimal = new ArrayList<GreedyOptimal>();
 		
 		for (int i = 0; i<10; i++) {
 			
@@ -31,11 +31,11 @@ public class T1Algoritmos {
 			
 			System.out.println("\nSolucionando Lista pelo método guloso sub-ótimo");
 			solutionsSuboptimal.add(new GreedySuboptimal(generators.get(i).getLista()));
-			System.out.println(solutionsSuboptimal.get(i).getResults());
+			System.out.println(solutionsSuboptimal.get(i));
 			
 			System.out.println("\nSolucionando Lista pelo método guloso ótimo");
-			solutionsSuboptimal.add(new GreedySuboptimal(generators.get(i).getLista()));
-			System.out.println(solutionsSuboptimal.get(i).getResults());
+			solutionsOptimal.add(new GreedyOptimal(generators.get(i).getLista()));
+			System.out.println(solutionsOptimal.get(i));
 			
 			System.out.println("\n--------------------------------------------------------------------\n");
 		}

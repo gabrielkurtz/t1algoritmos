@@ -2,29 +2,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-// Tenta solucionar o problema com estrat�gia gulosa Subotima
-// Seleciona sempre o intervalo que inicia primeiro (menor ts entre os intervalos que ainda cabem)
+// Soluciona o problema de forma Ótima com algoritmo guloso:
+// Aloca o recurso sempre para o Request que termina mais cedo.
 
-public class GreedySuboptimal {
+public class GreedyOptimal {
 
 	private HashSet<Request> listOriginal;
 	private ArrayList<Request> listSorted;
 	private ArrayList<Request> results;
 	
-	public GreedySuboptimal(HashSet<Request> listaOriginal) {
+	public GreedyOptimal(HashSet<Request> listaOriginal) {
 		this.listOriginal = listaOriginal;
 		sortList();
 		solve();
 	}
 	
-	// Ordena a lista utilizando comparador de menor TS
+	// Ordena a lista utilizando comparador de menor TF (qual Request termina primeiro)
+	 
 	public void sortList() {
 		listSorted = new ArrayList<Request>(listOriginal);
-		Collections.sort(listSorted, Request.COMPARE_BY_TS);
+		Collections.sort(listSorted, Request.COMPARE_BY_TF);
 	}
 	
-	// Varre todos os Requests ordenados por TS
-	// e os adiciona na lista de resultados quando seu TS inicia ap�s o t�rmino do ultimo request (ou ao mesmo tempo). 
+	// Varre todos os Requests ordenados por TF
+	// e os adiciona na lista de resultados quando seu TS inicia após o término do ultimo request (ou ao mesmo tempo). 
 	public void solve() {
 		results = new ArrayList<Request>();
 		int freeTime = 0;
@@ -45,3 +46,4 @@ public class GreedySuboptimal {
 	}
 	
 }
+
