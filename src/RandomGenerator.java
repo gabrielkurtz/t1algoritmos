@@ -26,13 +26,7 @@ public class RandomGenerator {
 	}
 
 	public String toString() {
-		StringBuilder sb = new StringBuilder("{"); 
-		for (Request req : lista) {
-			sb.append(req + ", ");
-		}
-		sb.delete(sb.length()-2, sb.length());
-		sb.append("}");
-		return sb.toString();
+		return lista.toString();
 	}
 	
 	
