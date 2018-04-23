@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.concurrent.ThreadLocalRandom;
 
-// Gera um Set (sem ordem definida) de Requests aleat�rios
+// Gera um Set (sem ordem definida) de Requests aleat�rios
 
 	
 public class RandomGenerator {
@@ -12,6 +12,7 @@ public class RandomGenerator {
 		generate(size, maxValue);
 	}
 	
+	// Cria lista de Requests com dados aleatórios (dentro dos parâmetros estabelecidos)
 	public void generate(int size, int maxValue) {
 		lista = new HashSet<Request>();
 		for (int i = 0; i<size; i++) {
@@ -28,6 +29,5 @@ public class RandomGenerator {
 	public String toString() {
 		return lista.toString();
 	}
-	
 	
 }

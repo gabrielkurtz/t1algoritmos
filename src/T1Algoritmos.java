@@ -26,7 +26,7 @@ public class T1Algoritmos {
 		
 		int totalSolOpt = 0, totalSolSub = 0;
 		
-		
+		// Efetua rotina 10 vezes para gerar 10 casos de exemplos e soluções Ótimas e Sub-ótimas e compará-las
 		for (int i = 0; i<10; i++) {
 			
 			System.out.println("Iniciando Gerador " + (i+1));

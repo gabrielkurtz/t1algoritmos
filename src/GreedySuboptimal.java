@@ -24,12 +24,12 @@ public class GreedySuboptimal {
 	}
 	
 	// Varre todos os Requests ordenados por TS
-	// e os adiciona na lista de resultados quando seu TS inicia ap�s o t�rmino do ultimo request (ou ao mesmo tempo). 
+	// e os adiciona na lista de resultados quando seu TS inicia ap�s o t�rmino do ultimo request (evitando sobreposição). 
 	public void solve() {
 		results = new ArrayList<Request>();
 		int freeTime = 0;
 		for(Request req : listSorted) {
-			if(req.getTs() >= freeTime) {
+			if(req.getTs() > freeTime) {
 				results.add(req);
 				freeTime = req.getTf();
 			}

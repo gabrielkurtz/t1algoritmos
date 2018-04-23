@@ -18,19 +18,18 @@ public class GreedyOptimal {
 	}
 	
 	// Ordena a lista utilizando comparador de menor TF (qual Request termina primeiro)
-	 
 	public void sortList() {
 		listSorted = new ArrayList<Request>(listOriginal);
 		Collections.sort(listSorted, Request.COMPARE_BY_TF);
 	}
 	
 	// Varre todos os Requests ordenados por TF
-	// e os adiciona na lista de resultados quando seu TS inicia após o término do ultimo request (ou ao mesmo tempo). 
+	// e os adiciona na lista de resultados quando seu TS inicia após o término do ultimo request (evitando sobreposição). 
 	public void solve() {
 		results = new ArrayList<Request>();
 		int freeTime = 0;
 		for(Request req : listSorted) {
-			if(req.getTs() >= freeTime) {
+			if(req.getTs() > freeTime) {
 				results.add(req);
 				freeTime = req.getTf();
 			}
